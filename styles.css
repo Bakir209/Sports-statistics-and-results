@@ -482,3 +482,147 @@ form input:focus, form select:focus, form textarea:focus {
 }
 
 
+
+
+
+.favorites-page {
+    margin-top: 30px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--primary-color); 
+}
+
+
+.favorite-team-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.card-header {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+
+.games-league-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+
+.games-column {
+    background-color: var(--primary-color);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.games-column h4 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #FFA500;
+}
+
+
+.game-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.game-card p {
+    margin: 5px 0;
+}
+
+
+.league-table {
+    background-color: var(--primary-color);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.league-table h4 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color:#FFA500;
+}
+
+.league-table table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.league-table table tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.league-table table tr:last-child {
+    border-bottom: none;
+}
+
+.league-table table td {
+    padding: 8px 10px;
+}
+
+.league-table table .highlighted {
+    background-color: var(--primary-color);
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+
+@media (max-width: 768px) {
+    .games-league-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card-footer {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+}
+
+.card-footer .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.card-footer .btn:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
