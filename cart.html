@@ -25,6 +25,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="register.html">Register</a>
                 </li>
+                <li class="nav-item">
+                    <button class="theme-switcher" id="themeSwitcherButton">Switch Theme</button>
+                </li>
             </ul>
         </nav>
         
@@ -284,9 +287,84 @@
                 </div>
             </div>
         </div>
-        
-            
-        
+        <hr><hr>
+            <h2 class="section-title">Iconic Moments Gallery</h2>
+
+    <button class="toggle-button" id="toggleGalleryButton">Toggle Gallery</button>
+    
+
+    <div class="gallery" id="gallery">
+        <div class="gallery">
+            <img src="photos/gallery1.png" alt="Image 1" data-full="photos/gallery1.png">
+            <img src="photos/gallery2.jpg" alt="Image 2" data-full="photos/gallery2.jpg">
+            <img src="photos/gallery3.jpg" alt="Image 3" data-full="photos/gallery3.jpg">
+            <img src="photos/gallery4.jpg" alt="Image 4" data-full="photos/gallery4.jpg">
+            <img src="photos/gallery5.jpg" alt="Image 1" data-full="photos/gallery5.jpg">
+            <img src="photos/gallery6.jpg" alt="Image 2" data-full="photos/gallery6.jpg">
+            <img src="photos/gallery7.jpg" alt="Image 3" data-full="photos/gallery7.jpg">
+            <img src="photos/gallery8.jpg" alt="Image 4" data-full="photos/gallery8.jpg">
+            <img src="photos/gallery9.jpg" alt="Image 3" data-full="photos/gallery9.jpg">
+            <img src="photos/gallery10.jpg" alt="Image 4" data-full="photos/gallery10.jpg">
+        </div>
+    </div>
+
+    <div class="modal" id="imageModal">
+        <span class="close" id="closeModal">&times;</span>
+        <img id="modalImage" src="" alt="">
+    </div>
+
+    <script>
+        const galleryImages = document.querySelectorAll('.gallery img');
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const closeModal = document.getElementById('closeModal');
+        const toggleGalleryButton = document.getElementById('toggleGalleryButton');
+        const gallery = document.getElementById('gallery');
+        const themeSwitcherButton = document.getElementById('themeSwitcherButton');
+
+        let isDarkTheme = false;
+
+        galleryImages.forEach(img => {
+            img.addEventListener('click', () => {
+                const fullSrc = img.getAttribute('data-full');
+                modalImage.src = fullSrc;
+                modal.style.display = 'flex';
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        toggleGalleryButton.addEventListener('click', () => {
+            const isVisible = gallery.style.display !== 'none';
+            gallery.style.display = isVisible ? 'none' : 'flex';
+        });
+
+        themeSwitcherButton.addEventListener('click', () => {
+            if (isDarkTheme) {
+                document.body.style.backgroundColor = '#ffffff';
+                document.body.style.color = '#000000';
+                themeSwitcherButton.textContent = 'Switch Theme';
+            } else {
+                document.body.style.backgroundColor = '#333333';
+                document.body.style.color = '#ffffff';
+                themeSwitcherButton.textContent = 'Switch Theme';
+            }
+            isDarkTheme = !isDarkTheme;
+        });
+    </script>
+
+
+
+
+        </body>
         
     </main>
 

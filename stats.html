@@ -25,6 +25,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="register.html">Register</a>
                 </li>
+                <li class="nav-item">
+                    <button class="theme-switcher" id="themeSwitcherButton">Switch Theme</button>
+                </li>
             </ul>
         </nav>
         
@@ -826,7 +829,22 @@
             </div>
         </div>
         
-        
+     <script>
+        const themeSwitcherButton = document.getElementById('themeSwitcherButton');
+        let isDarkTheme = false;
+     themeSwitcherButton.addEventListener('click', () => {
+        if (isDarkTheme) {
+            document.body.style.backgroundColor = '#ffffff';
+            document.body.style.color = '#000000';
+            themeSwitcherButton.textContent = 'Switch Theme';
+        } else {
+            document.body.style.backgroundColor = '#333333';
+            document.body.style.color = '#ffffff';
+            themeSwitcherButton.textContent = 'Switch Theme';
+        }
+        isDarkTheme = !isDarkTheme;
+    });
+    </script>   
         
         
         
