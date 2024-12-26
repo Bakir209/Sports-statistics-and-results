@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "author": "John Doe",
+    "comment": "I really like the design of the page! It's easy to navigate and the results are clear."
+  },
+  {
+    "id": 2,
+    "author": "Jane Smith",
+    "comment": "The page looks great, but I think it would be helpful to add a search feature to find specific teams or matches."
+  },
+  {
+    "id": 3,
+    "author": "Sam Brown",
+    "comment": "The layout is clean, but it would be awesome to have an option to view the results in a table format."
+  }
+]
