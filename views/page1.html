@@ -1,0 +1,390 @@
+<div class="container">
+    
+    
+    
+    <div class="football-form-container">
+        <h2>Football Club Data</h2>
+        <form id="footballForm">
+          <label for="clubName">Enter Club Name:</label>
+          <input type="text" id="clubName" name="clubName" required>
+          <button type="submit">Fetch Data</button>
+        </form>
+    
+        <div class="result-container" id="resultContainer" style="display: none;">
+          <h3>Club Information</h3>
+          <p id="clubDetails"></p>
+        </div>
+      </div>
+    
+      <script>
+        document.getElementById('footballForm').addEventListener('submit', function(event) {
+          event.preventDefault();
+    
+          const clubName = document.getElementById('clubName').value.trim();
+          const resultContainer = document.getElementById('resultContainer');
+          const clubDetails = document.getElementById('clubDetails');
+    
+          clubDetails.textContent = '';
+    
+          if (clubName) {
+            fetch(`https://api.football-data.org/v4/teams?name=${clubName}`, {
+              headers: {
+              }
+            })
+            .then(response => response.json())
+            .then(data => {
+              if (data.teams && data.teams.length > 0) {
+                clubDetails.innerHTML = `
+                  <strong>Club Name:</strong> ${team.name}<br>
+                  <strong>Short Name:</strong> ${team.tla}<br>
+                  <strong>Founded:</strong> ${team.founded}<br>
+                  <strong>Stadium:</strong> ${team.stadium}<br>
+                  <strong>Website:</strong> <a href="${team.website}" target="_blank">${team.website}</a>
+                `;
+                resultContainer.style.display = 'block';
+              } else {
+                clubDetails.textContent = 'No data found for the specified club.';
+                resultContainer.style.display = 'block';
+              }
+            })
+            .catch(error => {
+              clubDetails.textContent = 'An error occurred while fetching the data.';
+              resultContainer.style.display = 'block';
+              console.error(error);
+            });
+          } else {
+            clubDetails.textContent = 'Please enter a valid club name.';
+            resultContainer.style.display = 'block';
+          }
+        });
+      </script>
+           
+            <section class="latest-results">
+                <h2>Latest Football Results</h2>
+            
+                
+                <div class="match-card">
+                    <div class="match-details">
+                        <div class="team-info team-left">
+                            <img src="photos/clubbruge.png" alt="" class="team-logo">
+                            <span class="team-name">Club Brugge</span>
+                        </div>
+        
+                        <span class="match-score">1 - 0</span>
+            
+                        <div class="team-info team-right">
+                            <span class="team-name">Aston Villa</span>
+                            <img src="photos/astonvilla.png" alt="" class="team-logo">
+                        </div>
+                    </div>
+                        <div class="match-date">November 6, 2024</div>
+                </div>
+            
+                <div class="match-card">
+                    <div class="match-details">
+                        <div class="team-info team-left">
+                            <img src="photos/shakhtar.png" alt="" class="team-logo">
+                            <span class="team-name">Shakthar</span>    
+                        </div>
+                        
+                        <span class="match-score">2 - 1</span>
+                        
+                        <div class="team-info team-right">
+                            <span class="team-name">Young Boys</span>
+                            <img src="photos/youngboys.png" alt="" class="team-logo">    
+                        </div>
+                    </div>
+                        <div class="match-date">November 6, 2024</div>
+                </div>
+            
+                <div class="match-card">
+                    <div class="match-details">
+                        <div class="team-info team-left">
+                            <img src="photos/inter.png" alt="" class="team-logo">
+                            <span class="team-name">Inter</span>   
+                        </div>
+                        
+                        <span class="match-score">1 - 0</span>
+                        
+                        <div class="team-info team-right">
+                            <span class="team-name">Arsenal</span>
+                            <img src="photos/arsenal.png" alt="" class="team-logo">   
+                        </div>
+                    </div>
+                        <div class="match-date">November 6, 2024</div>
+                </div>
+    
+                <div class="match-card">
+                    <div class="match-details">
+                        <div class="team-info team-left">
+                            <img src="photos/crvenazvezda.png" alt="" class="team-logo">
+                            <span class="team-name">FK Crvena Zvezda</span>
+                        </div>
+        
+                        <span class="match-score">2 - 5</span>
+            
+                        <div class="team-info team-right">
+                            <span class="team-name">Barcelona</span>
+                            <img src="photos/barcelona.png" alt="" class="team-logo">
+                        </div>
+                    </div>
+                        <div class="match-date">November 6, 2024</div>
+                </div>
+    
+                <div class="match-card">
+                    <div class="match-details">
+                        <div class="team-info team-left">
+                            <img src="photos/psg.png" alt="" class="team-logo">
+                            <span class="team-name">PSG</span>
+                        </div>
+        
+                        <span class="match-score">1 - 2</span>
+            
+                        <div class="team-info team-right">
+                            <span class="team-name">Atletico</span>
+                            <img src="photos/atletico.png" alt="" class="team-logo">
+                        </div>
+                    </div>
+                        <div class="match-date">November 6, 2024</div>
+                </div>
+    
+                <div class="match-card">
+                    <div class="match-details">
+                        <div class="team-info team-left">
+                            <img src="photos/stuttgart.png" alt="" class="team-logo">
+                            <span class="team-name">Stuttgart</span>
+                        </div>
+        
+                        <span class="match-score">0 - 2</span>
+            
+                        <div class="team-info team-right">
+                            <span class="team-name">Atalanta</span>
+                            <img src="photos/atalanta.png" alt="" class="team-logo">
+                        </div>
+                    </div>
+                        <div class="match-date">November 6, 2024</div>
+                </div>
+    
+                <div class="match-card">
+                    <div class="match-details">
+                        <div class="team-info team-left">
+                            <img src="photos/feyenoord.png" alt="" class="team-logo">
+                            <span class="team-name">Feyenoord</span>
+                        </div>
+        
+                        <span class="match-score">1 - 3</span>
+            
+                        <div class="team-info team-right">
+                            <span class="team-name">Salzburg</span>
+                            <img src="photos/salzburg.png" alt="" class="team-logo">
+                        </div>
+                    </div>
+                        <div class="match-date">November 6, 2024</div>
+                </div>
+    
+                <div class="match-card">
+                    <div class="match-details">
+                        <div class="team-info team-left">
+                            <img src="photos/bayern.png" alt="" class="team-logo">
+                            <span class="team-name">Bayern</span>
+                        </div>
+        
+                        <span class="match-score">1 - 0</span>
+            
+                        <div class="team-info team-right">
+                            <span class="team-name">Benfica</span>
+                            <img src="photos/benfica.png" alt="" class="team-logo">
+                        </div>
+                    </div>
+                        <div class="match-date">November 6, 2024</div>
+                </div>
+            
+            </section>
+    
+            <section>
+                
+    
+                
+    
+                
+                <div class="container">
+                    <h2 class="text-center my-4">Top Teams</h2>
+                    <div class="row">
+                        
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <img src="photos/madrid2.jpg" class="card-img-top" alt="Real Madrid">
+                                <div class="card-body">
+                                    <h4 class="card-title">Real Madrid</h4>
+                                    <p class="card-text">Real Madrid is the most successful club in the history of the competition, with 14 titles. 
+                                    They have been a top team for decades, especially in recent years with players like Cristiano Ronaldo.</p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <img src="photos/milan2.jpg" class="card-img-top" alt="AC Milan">
+                                <div class="card-body">
+                                    <h4 class="card-title">AC Milan</h4>
+                                    <p class="card-text">AC Milan has won the Champions League 7 times, making them one of the best teams in Europe. 
+                                        They have had strong periods in the 1980s and early 2000s, with great players like Paolo Maldini and Kaka.</p>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <img src="photos/liverpool2.jpg" class="card-img-top" alt="Liverpool">
+                                <div class="card-body">
+                                    <h4 class="card-title">Liverpool</h4>
+                                    <p class="card-text">Liverpool has won the Champions League 6 times, with their most famous victory being in the
+                                         2005 final where they made a huge comeback. They are also a very strong team in recent years, especially under coach Jurgen Klopp</p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        
+                    </div>
+    
+    
+                    
+                </div>
+    
+              
+                
+            </section>
+    
+    
+    <div class="comment-form">
+        <h2 class="section-title">Leave me a comment</h2>
+        <input type="text" id="author" placeholder="Your name" />
+        <textarea id="commentText" placeholder="Your comment"></textarea>
+        <button onclick="addComment()">Add Comment</button>
+    </div>
+    
+    <div class="comments-list" id="commentsList"></div>
+    <h2 class="section-title">Generated comments from json file</h2>
+    
+    
+    <div class="message" id="messageBox"></div>
+    
+            <div id="comments-container"></div>
+            <script>
+                let comments = [];
+    
+    function displayComments() {
+        const commentsList = document.getElementById('commentsList');
+        commentsList.innerHTML = '';
+    
+        comments.forEach(comment => {
+            const commentElement = document.createElement('div');
+            commentElement.classList.add('comment');
+            commentElement.innerHTML = `
+                <strong>${comment.author}</strong>: ${comment.text}
+                <div class="comment-actions">
+                    <button class="edit-btn" onclick="editComment(${comment.id})">Edit</button>
+                    <button class="delete-btn" onclick="deleteComment(${comment.id})">Delete</button>
+                </div>
+            `;
+            commentsList.appendChild(commentElement);
+        });
+    }
+    
+    function addComment() {
+        const author = document.getElementById('author').value;
+        const commentText = document.getElementById('commentText').value;
+    
+        if (author && commentText) {
+            const newComment = {
+                id: comments.length + 1,
+                author: author,
+                text: commentText
+            };
+            comments.push(newComment);
+            displayComments();
+            showMessage("Success: Your comment has been added!");
+            clearInputs();
+        } else {
+            showMessage("Error: Please fill in both fields.", "error");
+        }
+    }
+    
+    function editComment(id) {
+        const comment = comments.find(c => c.id === id);
+        const newText = prompt("Edit your comment:", comment.text);
+    
+        if (newText !== null && newText !== "") {
+            comment.text = newText;
+            displayComments();
+            showMessage("Success: Comment has been edited!");
+        }
+    }
+    
+    function deleteComment(id) {
+        const confirmation = confirm("Are you sure you want to delete this comment?");
+        if (confirmation) {
+            comments = comments.filter(c => c.id !== id);
+            displayComments();
+            showMessage("Success: Comment has been deleted!");
+        }
+    }
+    
+    function showMessage(message, type = "success") {
+        const messageBox = document.getElementById('messageBox');
+        messageBox.textContent = message;
+        messageBox.style.backgroundColor = type === "error" ? "#f8d7da" : "#e7f4e4";
+        messageBox.style.color = type === "error" ? "#f44336" : "#4CAF50";
+        messageBox.style.display = "block";
+    
+        setTimeout(() => {
+            messageBox.style.display = "none";
+        }, 3000);
+    }
+    
+    function clearInputs() {
+        document.getElementById('author').value = '';
+        document.getElementById('commentText').value = '';
+    }
+    
+    displayComments();
+    
+            </script>
+            <script>
+                const themeSwitcherButton = document.getElementById('themeSwitcherButton');
+                let isDarkTheme = false;
+                $(document).ready(function() {
+                    $.ajax({
+                        method: 'GET',
+                        dataType: 'json',
+                        success: function(data) {
+                            data.forEach(function(feedback) {
+                                const commentHtml = `
+                                    <div class="comment">
+                                        <p class="author">${feedback.author} says:</p>
+                                        <p>${feedback.comment}</p>
+                                    </div>
+                                `;
+                                $('#comments-container').append(commentHtml);
+                            });
+                        },
+                        error: function() {
+                            $('#comments-container').html('<p>Error loading feedback.</p>');
+                        }
+                    });
+                });
+                themeSwitcherButton.addEventListener('click', () => {
+                if (isDarkTheme) {
+                    document.body.style.backgroundColor = '#ffffff';
+                    document.body.style.color = '#000000';
+                    themeSwitcherButton.textContent = 'Switch Theme';
+                } else {
+                    document.body.style.backgroundColor = '#333333';
+                    document.body.style.color = '#ffffff';
+                    themeSwitcherButton.textContent = 'Switch Theme';
+                }
+                isDarkTheme = !isDarkTheme;
+            });
+                </script>
+</div>
